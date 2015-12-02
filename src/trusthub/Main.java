@@ -3,14 +3,11 @@ package trusthub;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
+import trusthub.exceptions.ImageExceptions;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Cian on 11/8/2015.
@@ -31,14 +28,30 @@ class Main {
 
         ArrayList<Mat> matList;
         matList = im.getMatList();
-        System.out.println("Size: " + matList.size());
+
+        try {
+
+            if (matList.size() == 0) {
+                throw new ImageExceptions("Image Text Not detected");
+            }
+
+        } catch (ImageExceptions ex) {
+            System.err.println(ex);
+        }
+
         for (int i = 0; i < matList.size(); i++) {
             im.properSkewAngle(matList.get(i));
             String rand = randomString();
-            //matList.set(i, im.deNoise(matList.get(i)));
             matList.set(i, im.cleanImage(matList.get(i)));
             Imgcodecs.imwrite("src/assets/extract/"+rand+".png", matList.get(i));
         }
+
+        for (int i = 0; i< matList.size(); i++) {
+            String rand = randomString();
+            matList.set(i, im.newCleanImage(matList.get(i)));
+            Imgcodecs.imwrite("src/assets/extract/newtest/"+rand+".png", matList.get(i));
+        }
+
         Write writeImage = new Write(canny, "src/assets/taxdisc3.png");
         writeImage.writeImageToLocation();
     }

@@ -3,12 +3,9 @@ package trusthub;
 import org.opencv.core.*;
 import org.opencv.features2d.FeatureDetector;
 import org.opencv.features2d.Features2d;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.opencv.photo.Photo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -20,9 +17,9 @@ class ImageManipulation {
     private static MatOfKeyPoint mokp = new MatOfKeyPoint();
     private static Mat edges = new Mat();
     private ArrayList<Mat> matList;
+    private ArrayList<Mat> cleanedMatList;
 
     public Mat test (Mat srcImage) {
-//        srcImage.convertTo(srcImage, CvType.CV_8U, 2, 2);
         Mat mRgba = srcImage.clone();
         Mat mGray = new Mat();
 
@@ -43,7 +40,7 @@ class ImageManipulation {
         int rectany1;
         int rectanx2;
         int rectany2;
-        double largestArea = 0;
+        double largestArea = 750000.0;
 
         //
         Scalar zeos = new Scalar(0, 0, 0);
@@ -88,30 +85,28 @@ class ImageManipulation {
                     Imgproc.RETR_EXTERNAL, Imgproc.CHAIN_APPROX_NONE);
 
         matList  = new ArrayList<Mat>();
-        int c = 0;
 
         for (int i = 0; i < contour2.size(); i++) {
             rectan3 = Imgproc.boundingRect(contour2.get(i));
 
-            if (rectan3.area() > 0.5 * imgsize || rectan3.area() < 10000 || rectan3.width / rectan3.height < 2) {
+            if (rectan3.area() > 0.5 * imgsize || rectan3.area() < 10000 || rectan3.width / rectan3.height < 3) {
                 Mat roi = new Mat(morbyte, rectan3);
                 roi.setTo(zeos);
             } else {
                 Imgproc.rectangle(mRgba, rectan3.br(), rectan3.tl(), new Scalar(0, 0, 255));
 
                 if (rectan3.area() > largestArea) {
+                    System.out.println("Rect: " + rectan3.area());
                     largestArea = rectan3.area();
                     // Add our rectangles to an ArrayList to be processed
                     Rect nRoi = new Rect(rectan3.br(), rectan3.tl());
                     Mat box = mRgba.submat(nRoi);
-                    matList.add(c, box);
+                    matList.add(0, box);
                 }
-
-
             }
         }
 
-            return mRgba;
+        return mRgba;
     }
 
     public Mat deskewImage (Mat srcImage, double angle) {
@@ -149,7 +144,6 @@ class ImageManipulation {
 
         angle /= numLines.area();
 
-        System.out.println("Angle: " + angle);
         Mat newSrc = deskewImage(ret, angle);
         return newSrc;
     }
@@ -158,10 +152,96 @@ class ImageManipulation {
         Core.normalize(srcImage, srcImage, 0, 255, Core.NORM_MINMAX);
         Imgproc.threshold(srcImage, srcImage, 0, 255, Imgproc.THRESH_OTSU);
         Imgproc.erode(srcImage, srcImage, new Mat());
-        Imgproc.dilate(srcImage, srcImage, new Mat(), new Point(0, 0), 9);
+        Imgproc.dilate(srcImage, srcImage, new Mat(), new Point(0, 0), 5);
         Imgproc.morphologyEx(srcImage, srcImage, Imgproc.MORPH_CLOSE, new Mat());
         Imgproc.medianBlur(srcImage, srcImage, 3);
         return srcImage;
+    }
+
+    public Mat newCleanImage (Mat srcImage) {
+        Mat im = new Mat();
+        srcImage.copyTo(im);
+        Mat bw = new Mat(im.size(), CvType.CV_8U);
+        Imgproc.threshold(im, bw, 0, 255, Imgproc.THRESH_BINARY_INV | Imgproc.THRESH_OTSU);
+// take the distance transform
+        Mat dist = new Mat(im.size(), CvType.CV_32F);
+        Imgproc.distanceTransform(bw, dist, Imgproc.CV_DIST_L2, Imgproc.CV_DIST_MASK_PRECISE);
+// threshold the distance transform
+        Mat dibw32f = new Mat(im.size(), CvType.CV_32F);
+        final double SWTHRESH = 8.0;    // stroke width threshold
+        Imgproc.threshold(dist, dibw32f, SWTHRESH/2.0, 255, Imgproc.THRESH_BINARY);
+        Mat dibw8u = new Mat(im.size(), CvType.CV_8U);
+        dibw32f.convertTo(dibw8u, CvType.CV_8U);
+
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(3, 3));
+// open to remove connections to stray elements
+        Mat cont = new Mat(im.size(), CvType.CV_8U);
+        Imgproc.morphologyEx(dibw8u, cont, Imgproc.MORPH_OPEN, kernel);
+// find contours and filter based on bounding-box height
+        final double HTHRESH = im.rows() * 0.5; // bounding-box height threshold
+        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+        List<Point> digits = new ArrayList<Point>();    // contours of the possible digits
+        Imgproc.findContours(cont, contours, new Mat(), Imgproc.RETR_CCOMP, Imgproc.CHAIN_APPROX_SIMPLE);
+        for (int i = 0; i < contours.size(); i++)
+        {
+            if (Imgproc.boundingRect(contours.get(i)).height > HTHRESH)
+            {
+                // this contour passed the bounding-box height threshold. add it to digits
+                digits.addAll(contours.get(i).toList());
+            }
+        }
+// find the convexhull of the digit contours
+        MatOfInt digitsHullIdx = new MatOfInt();
+        MatOfPoint hullPoints = new MatOfPoint();
+        hullPoints.fromList(digits);
+        Imgproc.convexHull(hullPoints, digitsHullIdx);
+// convert hull index to hull points
+        List<Point> digitsHullPointsList = new ArrayList<Point>();
+        List<Point> points = hullPoints.toList();
+        for (Integer i: digitsHullIdx.toList())
+        {
+            digitsHullPointsList.add(points.get(i));
+        }
+        MatOfPoint digitsHullPoints = new MatOfPoint();
+        digitsHullPoints.fromList(digitsHullPointsList);
+// create the mask for digits
+        List<MatOfPoint> digitRegions = new ArrayList<MatOfPoint>();
+        digitRegions.add(digitsHullPoints);
+        Mat digitsMask = Mat.zeros(im.size(), CvType.CV_8U);
+        Imgproc.drawContours(digitsMask, digitRegions, 0, new Scalar(255, 255, 255), -1);
+// dilate the mask to capture any info we lost in earlier opening
+        Imgproc.morphologyEx(digitsMask, digitsMask, Imgproc.MORPH_DILATE, kernel);
+// cleaned image ready for OCR
+        Mat cleaned = Mat.zeros(im.size(), CvType.CV_8U);
+        dibw8u.copyTo(cleaned, digitsMask);
+
+        return cleaned;
+    }
+
+    public Mat customClean (Mat srcImage) {
+        Imgproc.cvtColor(srcImage, srcImage, Imgproc.COLOR_BGR2GRAY);
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(3, 3));
+        // open to remove connections to stray elements
+        Mat cont = new Mat(srcImage.size(), CvType.CV_8U);
+        Imgproc.morphologyEx(srcImage, cont, Imgproc.MORPH_OPEN, kernel);
+
+        // Find all contours
+        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+        Imgproc.findContours(srcImage, contours, new Mat(), Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
+
+        for (int i = 0; i < contours.size(); i++) {
+            Rect rect = Imgproc.boundingRect(contours.get(i));
+
+            if (rect.width < rect.height) {
+                Imgproc.rectangle(srcImage, new Point(rect.x,rect.y), new Point(rect.x+rect.width,rect.y+rect.height), new Scalar(0, 0, 255));
+            }
+        }
+
+        return srcImage;
+    }
+
+    public ArrayList<Mat> getCleanedMatList () {
+        return cleanedMatList;
     }
 
     public ArrayList<Mat> getMatList () {
@@ -290,6 +370,7 @@ class ImageManipulation {
     public Mat findCountours (Mat srcImage) {
         List<MatOfPoint> imageCountours = new ArrayList<MatOfPoint>();
         Mat hierarchy = new Mat();
+        srcImage.convertTo(srcImage, CvType.CV_32SC1);
 
         Imgproc.findContours(srcImage, imageCountours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE, new Point(0,0));
 

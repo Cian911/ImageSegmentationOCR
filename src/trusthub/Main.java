@@ -24,7 +24,7 @@ class Main {
         ImageManipulation im = new ImageManipulation();
         Mat outImage = im.rotateImage(srcImage);
         Mat deskew = im.deskewImage(outImage, 90);
-        Mat canny = im.test(deskew);
+        Mat canny = im.segmentImage(deskew);
 
         ArrayList<Mat> matList;
         matList = im.getMatList();
@@ -48,7 +48,7 @@ class Main {
 
         for (int i = 0; i< matList.size(); i++) {
             String rand = randomString();
-            matList.set(i, im.newCleanImage(matList.get(i)));
+            matList.set(i, im.customCleanImage(matList.get(i)));
             Imgcodecs.imwrite("src/assets/extract/newtest/"+rand+".png", matList.get(i));
         }
 

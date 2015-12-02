@@ -13,13 +13,9 @@ import java.util.*;
  */
 class ImageManipulation {
 
-    private static FeatureDetector fd = FeatureDetector.create(FeatureDetector.MSER);
-    private static MatOfKeyPoint mokp = new MatOfKeyPoint();
-    private static Mat edges = new Mat();
     private ArrayList<Mat> matList;
-    private ArrayList<Mat> cleanedMatList;
 
-    public Mat test (Mat srcImage) {
+    public Mat segmentImage (Mat srcImage) {
         Mat mRgba = srcImage.clone();
         Mat mGray = new Mat();
 
@@ -40,7 +36,7 @@ class ImageManipulation {
         int rectany1;
         int rectanx2;
         int rectany2;
-        double largestArea = 750000.0;
+        double largestArea = 720000.0;
 
         //
         Scalar zeos = new Scalar(0, 0, 0);
@@ -129,7 +125,8 @@ class ImageManipulation {
         double angle = 0;
         Size numLines = lines.size();
         Mat disLines = new Mat(srcImage.size(), CvType.CV_8UC1, new Scalar(255, 0, 0));
-//        System.out.println ("Area: " + numLines.area() + ", Size: " + numLines);
+
+
         for (int i = 0; i < numLines.area(); i++) {
             double[] l0 = lines.get(i, 0);
             double p0 = (Double.isNaN(l0[0])) ? 0 : l0[0];
@@ -158,15 +155,15 @@ class ImageManipulation {
         return srcImage;
     }
 
-    public Mat newCleanImage (Mat srcImage) {
+    public Mat customCleanImage (Mat srcImage) {
         Mat im = new Mat();
         srcImage.copyTo(im);
         Mat bw = new Mat(im.size(), CvType.CV_8U);
         Imgproc.threshold(im, bw, 0, 255, Imgproc.THRESH_BINARY_INV | Imgproc.THRESH_OTSU);
-// take the distance transform
+        // take the distance transform
         Mat dist = new Mat(im.size(), CvType.CV_32F);
         Imgproc.distanceTransform(bw, dist, Imgproc.CV_DIST_L2, Imgproc.CV_DIST_MASK_PRECISE);
-// threshold the distance transform
+        // threshold the distance transform
         Mat dibw32f = new Mat(im.size(), CvType.CV_32F);
         final double SWTHRESH = 8.0;    // stroke width threshold
         Imgproc.threshold(dist, dibw32f, SWTHRESH/2.0, 255, Imgproc.THRESH_BINARY);
@@ -174,10 +171,10 @@ class ImageManipulation {
         dibw32f.convertTo(dibw8u, CvType.CV_8U);
 
         Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(3, 3));
-// open to remove connections to stray elements
+        // open to remove connections to stray elements
         Mat cont = new Mat(im.size(), CvType.CV_8U);
         Imgproc.morphologyEx(dibw8u, cont, Imgproc.MORPH_OPEN, kernel);
-// find contours and filter based on bounding-box height
+        // find contours and filter based on bounding-box height
         final double HTHRESH = im.rows() * 0.5; // bounding-box height threshold
         List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
         List<Point> digits = new ArrayList<Point>();    // contours of the possible digits
@@ -190,12 +187,12 @@ class ImageManipulation {
                 digits.addAll(contours.get(i).toList());
             }
         }
-// find the convexhull of the digit contours
+        // find the convexhull of the digit contours
         MatOfInt digitsHullIdx = new MatOfInt();
         MatOfPoint hullPoints = new MatOfPoint();
         hullPoints.fromList(digits);
         Imgproc.convexHull(hullPoints, digitsHullIdx);
-// convert hull index to hull points
+        // convert hull index to hull points
         List<Point> digitsHullPointsList = new ArrayList<Point>();
         List<Point> points = hullPoints.toList();
         for (Integer i: digitsHullIdx.toList())
@@ -204,79 +201,24 @@ class ImageManipulation {
         }
         MatOfPoint digitsHullPoints = new MatOfPoint();
         digitsHullPoints.fromList(digitsHullPointsList);
-// create the mask for digits
+        // create the mask for digits
         List<MatOfPoint> digitRegions = new ArrayList<MatOfPoint>();
         digitRegions.add(digitsHullPoints);
         Mat digitsMask = Mat.zeros(im.size(), CvType.CV_8U);
         Imgproc.drawContours(digitsMask, digitRegions, 0, new Scalar(255, 255, 255), -1);
-// dilate the mask to capture any info we lost in earlier opening
+        // dilate the mask to capture any info we lost in earlier opening
         Imgproc.morphologyEx(digitsMask, digitsMask, Imgproc.MORPH_DILATE, kernel);
-// cleaned image ready for OCR
+        // cleaned image ready for OCR
         Mat cleaned = Mat.zeros(im.size(), CvType.CV_8U);
         dibw8u.copyTo(cleaned, digitsMask);
 
         return cleaned;
     }
 
-    public Mat customClean (Mat srcImage) {
-        Imgproc.cvtColor(srcImage, srcImage, Imgproc.COLOR_BGR2GRAY);
-        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(3, 3));
-        // open to remove connections to stray elements
-        Mat cont = new Mat(srcImage.size(), CvType.CV_8U);
-        Imgproc.morphologyEx(srcImage, cont, Imgproc.MORPH_OPEN, kernel);
-
-        // Find all contours
-        List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
-        Imgproc.findContours(srcImage, contours, new Mat(), Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
-
-        for (int i = 0; i < contours.size(); i++) {
-            Rect rect = Imgproc.boundingRect(contours.get(i));
-
-            if (rect.width < rect.height) {
-                Imgproc.rectangle(srcImage, new Point(rect.x,rect.y), new Point(rect.x+rect.width,rect.y+rect.height), new Scalar(0, 0, 255));
-            }
-        }
-
-        return srcImage;
-    }
-
-    public ArrayList<Mat> getCleanedMatList () {
-        return cleanedMatList;
-    }
-
     public ArrayList<Mat> getMatList () {
         return matList;
     }
 
-
-    public static Mat MSER (Mat srcImage) {
-        fd.detect(srcImage, mokp);
-        KeyPoint[] refKp = mokp.toArray();
-        Point[] refPts = new Point[refKp.length];
-
-        for (int i = 0; i < refKp.length; i++) {
-            refPts[i] = refKp[i].pt;
-        }
-        MatOfPoint2f refMatPt = new MatOfPoint2f(refPts);
-        MatOfPoint2f approxCurve = new MatOfPoint2f();
-
-        //Processing on mMOP2f1 which is in type MatOfPoint2f
-        double approxDistance = Math.random() * 0.2;
-        Imgproc.approxPolyDP(refMatPt, approxCurve, approxDistance, true);
-
-        //Convert back to MatOfPoint
-        MatOfPoint points = new MatOfPoint(approxCurve.toArray());
-        // Get bounding rect
-        Rect rect = Imgproc.boundingRect(points);
-        // draw enclosing rectangle (all same color, but you could use variable i to make them unique)
-        Imgproc.rectangle(srcImage, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0,0,255), 3);
-        Features2d.drawKeypoints(srcImage, mokp, srcImage);
-        return srcImage;
-    }
-
-    /*
-    * t() is the transpose of the matrix
-    * */
     public Mat rotateImage (Mat image) {
 
         Mat outputImg = new Mat();
@@ -284,117 +226,6 @@ class ImageManipulation {
         Core.flip(image.t(), outputImg, 1);
 
         return outputImg;
-    }
-
-    public double skew (Mat srcImage) {
-        Imgproc.threshold(srcImage, srcImage, 200, 255, Imgproc.THRESH_BINARY_INV);
-
-        ArrayList<Point> points = new ArrayList<Point>();
-
-        for (int j = 0; j < srcImage.rows(); j++) {
-            for (int i = 0; i < srcImage.cols(); i++) {
-                double[] pixel = srcImage.get(j, i);
-                if (pixel[0] == 255) {
-                    points.add(new Point(j, i));
-                }
-            }
-        }
-
-        MatOfPoint2f newPoints = new MatOfPoint2f();
-        newPoints.fromList(points);
-        MatOfPoint2f m2f = new MatOfPoint2f();
-        newPoints.convertTo(m2f, CvType.CV_32FC2);
-
-        RotatedRect minRect = Imgproc.minAreaRect(newPoints);
-        Mat rotateMatrix = Imgproc.getRotationMatrix2D(minRect.center, minRect.angle, 1);
-        return minRect.angle;
-    }
-
-    public Mat apply(Mat src, Mat dst) {
-        if (dst != src) {
-            src.copyTo(dst);
-        }
-        Mat img_gray,img_sobel, img_threshold, element;
-
-        img_gray=new Mat();
-        Imgproc.cvtColor(src, img_gray, Imgproc.COLOR_RGB2GRAY);
-
-        img_sobel=new Mat();
-        Imgproc.Sobel(img_gray, img_sobel, CvType.CV_8U, 1, 0, 3, 1, 0,Core.BORDER_DEFAULT);
-
-        img_threshold=new Mat();
-        Imgproc.threshold(img_sobel, img_threshold, 0, 255, Imgproc.THRESH_OTSU+Imgproc.THRESH_BINARY);
-
-        element=new Mat();
-        element = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(17, 3) );
-        Imgproc.morphologyEx(img_threshold, img_threshold, Imgproc.MORPH_CLOSE, element);
-        //Does the trick
-        List<MatOfPoint>  contours=new ArrayList<MatOfPoint>();
-        Mat hierarchy = new Mat();
-        Imgproc.findContours(img_threshold, contours, hierarchy, 0, 1);
-        List<MatOfPoint> contours_poly=new ArrayList<MatOfPoint>(contours.size());
-        contours_poly.addAll(contours);
-
-        MatOfPoint2f mMOP2f1,mMOP2f2;
-        mMOP2f1=new MatOfPoint2f();
-        mMOP2f2=new MatOfPoint2f();
-        double largestArea = 0;
-
-        matList  = new ArrayList<Mat>();
-        int c = 0;
-
-        for( int i = 0; i < contours.size(); i++ )
-
-            if (contours.get(i).toList().size()>1200)
-            {
-                contours.get(i).convertTo(mMOP2f1, CvType.CV_32FC2);
-                Imgproc.approxPolyDP(mMOP2f1,mMOP2f2, 3, true );
-                mMOP2f2.convertTo(contours_poly.get(i), CvType.CV_32S);
-                Rect appRect=Imgproc.boundingRect(contours_poly.get(i));
-                if (appRect.width > appRect.height)
-                {
-                    Imgproc.rectangle(dst, new Point(appRect.x,appRect.y) ,new Point(appRect.x+appRect.width,appRect.y+appRect.height), new Scalar(255,0,0));
-
-                    if (appRect.area() > largestArea) {
-                        largestArea = appRect.area();
-                        // Add our rectangles to an ArrayList to be processed
-                        Rect nRoi = new Rect(appRect.br(), appRect.tl());
-                        Mat box = dst.submat(nRoi);
-                        matList.add(c, box);
-                    }
-                }
-            }
-        return dst;
-    }
-
-    public Mat findCountours (Mat srcImage) {
-        List<MatOfPoint> imageCountours = new ArrayList<MatOfPoint>();
-        Mat hierarchy = new Mat();
-        srcImage.convertTo(srcImage, CvType.CV_32SC1);
-
-        Imgproc.findContours(srcImage, imageCountours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE, new Point(0,0));
-
-        hierarchy.release();
-
-        MatOfPoint2f approxCurve = new MatOfPoint2f();
-
-        for (int i = 0; i < imageCountours.size(); i++) {
-            MatOfPoint2f countour2f = new MatOfPoint2f(imageCountours.get(i).toArray());
-
-            double approxDistance = Imgproc.arcLength(countour2f, true) * 0.03;
-
-            Imgproc.approxPolyDP(countour2f, approxCurve, approxDistance, true);
-
-            // Convert back to MatOfPoint
-            MatOfPoint points = new MatOfPoint(approxCurve.toArray());
-
-            // Get bounding of countour
-            Rect rect = Imgproc.boundingRect(points);
-            // Draw rectangles
-            Imgproc.rectangle(srcImage, new Point(rect.x,rect.y), new Point(rect.x+rect.width,rect.y+rect.height), new Scalar(255, 0, 0), 3);
-        }
-
-        return srcImage;
     }
 
 }

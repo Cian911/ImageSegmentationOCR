@@ -28,8 +28,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/trusthub/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.88168555">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.44084278">
+              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,30 +41,12 @@
         <entry file="file://$PROJECT_DIR$/src/trusthub/ImageManipulation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="154" column="72" selection-start-line="154" selection-start-column="72" selection-end-line="154" selection-end-column="72" />
+              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding>
-                <element signature="e#7249#7261#0" expanded="true" />
-                <element signature="e#7307#7314#0" expanded="true" />
-                <element signature="e#8109#8116#0" expanded="true" />
-                <element signature="e#8487#8499#0" expanded="true" />
-                <element signature="e#9483#9495#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageExceptions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/trusthub/exceptions/ImageExceptions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-              <folding>
-                <element signature="e#166#167#0" expanded="false" />
-                <element signature="e#196#197#0" expanded="false" />
-                <element signature="e#244#245#0" expanded="false" />
-                <element signature="e#272#273#0" expanded="false" />
-                <element signature="e#336#337#0" expanded="false" />
-                <element signature="e#373#374#0" expanded="false" />
+                <element signature="e#6979#6991#0" expanded="true" />
+                <element signature="e#7037#7044#0" expanded="true" />
+                <element signature="e#7855#7862#0" expanded="true" />
+                <element signature="e#8241#8253#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,9 +102,9 @@
         <option value="$PROJECT_DIR$/src/ImageExceptions.java" />
         <option value="$PROJECT_DIR$/src/trusthub/ImageExceptions.java" />
         <option value="$PROJECT_DIR$/src/trusthub/exceptions/ImageExceptions.java" />
-        <option value="$PROJECT_DIR$/src/trusthub/ImageManipulation.java" />
         <option value="$PROJECT_DIR$/src/trusthub/Read.java" />
         <option value="$PROJECT_DIR$/src/trusthub/Main.java" />
+        <option value="$PROJECT_DIR$/src/trusthub/ImageManipulation.java" />
       </list>
     </option>
   </component>
@@ -504,11 +486,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -549,11 +530,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -594,11 +574,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -639,11 +618,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -684,11 +662,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -729,11 +706,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -774,11 +750,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -819,11 +794,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -864,11 +838,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -909,11 +882,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -988,35 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trusthub/exceptions/ImageExceptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding>
-            <element signature="e#166#167#0" expanded="false" />
-            <element signature="e#196#197#0" expanded="false" />
-            <element signature="e#244#245#0" expanded="false" />
-            <element signature="e#272#273#0" expanded="false" />
-            <element signature="e#336#337#0" expanded="false" />
-            <element signature="e#373#374#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trusthub/ImageManipulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="154" column="72" selection-start-line="154" selection-start-column="72" selection-end-line="154" selection-end-column="72" />
-          <folding>
-            <element signature="e#7249#7261#0" expanded="true" />
-            <element signature="e#7307#7314#0" expanded="true" />
-            <element signature="e#8109#8116#0" expanded="true" />
-            <element signature="e#8487#8499#0" expanded="true" />
-            <element signature="e#9483#9495#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/trusthub/Read.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1027,10 +970,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/trusthub/exceptions/ImageExceptions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trusthub/ImageManipulation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+          <folding>
+            <element signature="e#6979#6991#0" expanded="true" />
+            <element signature="e#7037#7044#0" expanded="true" />
+            <element signature="e#7855#7862#0" expanded="true" />
+            <element signature="e#8241#8253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/trusthub/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.88168555">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.44084278">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

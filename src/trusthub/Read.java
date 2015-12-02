@@ -11,7 +11,7 @@ class Read {
     private Mat readSrcImage;
 
     public void readImageFromSrc () {
-        this.readSrcImage = Imgcodecs.imread("C://Users//Cian//IdeaProjects//TrustHub//src//assets//IMG_3987.jpg");
+        this.readSrcImage = Imgcodecs.imread("C://Users//Cian//IdeaProjects//TrustHub//src//assets//IMG_3988.jpg");
     }
 
     public Mat returnSrcImage () {

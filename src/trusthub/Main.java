@@ -25,7 +25,8 @@ class Main {
         Mat srcImage = readImage.returnSrcImage();
 
         ImageManipulation im = new ImageManipulation();
-        Mat outImage = im.rotateImage(srcImage);
+//        Mat outImage = im.rotateImage(srcImage);
+        Mat outImage = srcImage;
         Mat deskew = im.deskewImage(outImage, 0);
         Mat canny = im.segmentImage(deskew);
 
@@ -46,10 +47,10 @@ class Main {
             im.properSkewAngle(matList.get(i));
             String rand = randomString();
             matList.set(i, im.cleanImage(matList.get(i)));
-            Imgcodecs.imwrite("src/assets/extract/"+rand+".png", matList.get(i));
+            Imgcodecs.imwrite("src/assets/extract/" + rand + ".png", matList.get(i));
         }
 
-        for (int i = 0; i< matList.size(); i++) {
+        for (int i = 0; i < matList.size(); i++) {
             String rand = randomString();
             matList.set(i, im.customCleanImage(matList.get(i)));
 
@@ -59,7 +60,7 @@ class Main {
 
             // Execute tesseract
             try {
-                Process p = Runtime.getRuntime().exec("tesseract -psm 7 src/assets/extract/newtest/" + rand + ".png ocr/out-"+rand+" digits");
+                Process p = Runtime.getRuntime().exec("tesseract -psm 7 src/assets/extract/newtest/" + rand + ".png ocr/out-" + rand + " digits");
                 p.waitFor();
 
                 BufferedReader stdInput = new BufferedReader(new
@@ -79,7 +80,7 @@ class Main {
                 while ((s = stdError.readLine()) != null) {
                     System.out.println(s);
                 }
-            } catch (IOException|InterruptedException e) {
+            } catch (IOException | InterruptedException e) {
                 System.out.println(e);
             }
         }
@@ -88,7 +89,7 @@ class Main {
         writeImage.writeImageToLocation();
     }
 
-    public static String randomString () {
+    public static String randomString() {
         SecureRandom random = new SecureRandom();
         return new BigInteger(52, random).toString(32);
     }

@@ -17,10 +17,6 @@ public abstract class ImageManipulation {
   private double areaSize;
   private ArrayList<Mat> extracted_images = new ArrayList<Mat>();
 
-  protected Mat segmentExtractedImage( Mat src_image ) {
-    return src_image;
-  }
-
   protected Mat binarizeColouredImage( Mat src_image ) {
     Mat binary_matrix = new Mat();
     Imgproc.cvtColor(src_image, binary_matrix, Imgproc.COLOR_RGB2GRAY);

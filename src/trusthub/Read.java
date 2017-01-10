@@ -10,8 +10,9 @@ class Read {
 
     private Mat readSrcImage;
 
-    public void readImageFromSrc () {
-        this.readSrcImage = Imgcodecs.imread("C://Users//Cian//IdeaProjects//TrustHub//src//assets//screen.jpg");
+    public void readImageFromSrc (String imageSrc) {
+        System.out.println(imageSrc);
+        this.readSrcImage = Imgcodecs.imread(imageSrc);
     }
 
     public Mat returnSrcImage () {

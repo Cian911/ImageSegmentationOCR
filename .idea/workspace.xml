@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/trusthub/Main.java" line="24" />
+    <bookmark url="file://$PROJECT_DIR$/src/trusthub/Main.java" line="11" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d221577e-ce0e-4d73-9556-be126abc9a6e" name="Default" comment="" />
@@ -28,11 +28,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/trusthub/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.95418096">
-              <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
+            <state vertical-scroll-proportion="1.9083619">
+              <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CarScreenImage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trusthub/contructors/CarScreenImage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -41,8 +51,21 @@
         <entry file="file://$PROJECT_DIR$/src/trusthub/ImageManipulation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="203" column="37" selection-start-line="203" selection-start-column="37" selection-end-line="203" selection-end-column="37" />
-              <folding />
+              <caret line="333" column="1" selection-start-line="333" selection-start-column="1" selection-end-line="333" selection-end-column="1" />
+              <folding>
+                <element signature="e#692#702#0" expanded="true" />
+                <element signature="e#992#1004#0" expanded="true" />
+                <element signature="e#1053#1065#0" expanded="true" />
+                <element signature="e#3951#3961#0" expanded="true" />
+                <element signature="e#4257#4269#0" expanded="true" />
+                <element signature="e#4318#4330#0" expanded="true" />
+                <element signature="e#9507#9519#0" expanded="true" />
+                <element signature="e#9561#9568#0" expanded="true" />
+                <element signature="e#10301#10308#0" expanded="true" />
+                <element signature="e#10649#10661#0" expanded="true" />
+                <element signature="e#11191#11192#0" expanded="true" />
+                <element signature="e#11215#11216#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,10 +87,22 @@
         <entry file="file://$PROJECT_DIR$/src/trusthub/Read.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#400#401#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageManipulation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/trusthub/abstractions/ImageManipulation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,8 +132,8 @@
         <option value="$PROJECT_DIR$/src/ImageExceptions.java" />
         <option value="$PROJECT_DIR$/src/trusthub/ImageExceptions.java" />
         <option value="$PROJECT_DIR$/src/trusthub/exceptions/ImageExceptions.java" />
-        <option value="$PROJECT_DIR$/src/trusthub/ImageManipulation.java" />
         <option value="$PROJECT_DIR$/src/trusthub/ShellExecute.java" />
+        <option value="$PROJECT_DIR$/src/trusthub/ImageManipulation.java" />
         <option value="$PROJECT_DIR$/src/trusthub/Read.java" />
         <option value="$PROJECT_DIR$/src/trusthub/Main.java" />
       </list>
@@ -136,8 +171,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -172,6 +207,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="trusthub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrustHub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrustHub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trusthub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contructors" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrustHub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TrustHub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trusthub" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="abstractions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -446,12 +525,45 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/trusthub/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trusthub/ImageManipulation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/trusthub/Read.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -481,7 +593,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -491,45 +616,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trusthub/Write.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="67" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="67" />
-          <folding>
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#640#641#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trusthub/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trusthub/ImageManipulation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/trusthub/Read.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -559,7 +647,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="120" column="19" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -569,6 +670,8 @@
           <caret line="13" column="112" selection-start-line="13" selection-start-column="109" selection-end-line="13" selection-end-column="112" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -598,7 +701,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -608,6 +724,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -637,7 +755,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -647,6 +778,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,7 +809,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -686,6 +832,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -715,7 +863,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -725,6 +886,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,7 +917,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -764,6 +940,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -793,7 +971,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -803,6 +994,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -832,7 +1025,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -842,6 +1048,8 @@
           <caret line="13" column="108" selection-start-line="13" selection-start-column="108" selection-end-line="13" selection-end-column="108" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -873,6 +1081,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -913,28 +1123,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/trusthub/abstractions/ImageManipulation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trusthub/contructors/CarScreenImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/trusthub/ImageManipulation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="203" column="37" selection-start-line="203" selection-start-column="37" selection-end-line="203" selection-end-column="37" />
-          <folding />
+          <caret line="333" column="1" selection-start-line="333" selection-start-column="1" selection-end-line="333" selection-end-column="1" />
+          <folding>
+            <element signature="e#692#702#0" expanded="true" />
+            <element signature="e#992#1004#0" expanded="true" />
+            <element signature="e#1053#1065#0" expanded="true" />
+            <element signature="e#3951#3961#0" expanded="true" />
+            <element signature="e#4257#4269#0" expanded="true" />
+            <element signature="e#4318#4330#0" expanded="true" />
+            <element signature="e#9507#9519#0" expanded="true" />
+            <element signature="e#9561#9568#0" expanded="true" />
+            <element signature="e#10301#10308#0" expanded="true" />
+            <element signature="e#10649#10661#0" expanded="true" />
+            <element signature="e#11191#11192#0" expanded="true" />
+            <element signature="e#11215#11216#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trusthub/Read.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trusthub/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95418096">
-          <caret line="49" column="67" selection-start-line="49" selection-start-column="67" selection-end-line="49" selection-end-column="67" />
+        <state vertical-scroll-proportion="1.9083619">
+          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

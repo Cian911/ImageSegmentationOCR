@@ -16,6 +16,7 @@ public abstract class ImageManipulation {
 
   private double areaSize;
   private ArrayList<Mat> extracted_images = new ArrayList<Mat>();
+  private Mat src_image;
 
   protected Mat binarizeColouredImage( Mat src_image ) {
     Mat binary_matrix = new Mat();
@@ -92,6 +93,8 @@ public abstract class ImageManipulation {
     return this.extracted_images.get(index);
   }
 
+  protected void addExtractedMatToListByIndex( Mat extracted_image, int index ) { this.extracted_images.add( index, extracted_image ); }
+
   protected double getAreaSize() {
     return this.areaSize;
   }
@@ -99,5 +102,11 @@ public abstract class ImageManipulation {
   protected void setAreaSize( double area_size ) {
     this.areaSize = area_size;
   }
+
+  protected void setSrcImage( Mat src_image ) {
+    this.src_image = src_image;
+  }
+
+  protected Mat getSrcImage() { return this.src_image; }
 
 }

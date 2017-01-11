@@ -1,8 +1,7 @@
 package trusthub.contructors;
 
-import org.opencv.core.KeyPoint;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfKeyPoint;
+import org.opencv.core.*;
+import org.opencv.imgproc.Imgproc;
 import trusthub.abstractions.ImageManipulation;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class TaxDiscImage extends ImageManipulation {
 
     KeyPoint kpoint = new KeyPoint();
 
-    Mat mask = applyMatrixMask();
+    Mat mask = applyMatrixMask( binary_image );
 
     Scalar zeros = new Scalar(0, 0, 0);
 
@@ -53,9 +52,15 @@ public class TaxDiscImage extends ImageManipulation {
 
     mask = determineRegionOfInterest( binary_image, mask, kpoint );
 
+    Mat morbyte = applyMorphologicalOperation( mask, kernel );
+
+    this.countors = findExtractedImageContours( morbyte, this.countors, hierarchy );
+
+    extractedRegionOfInterest( morbyte, src_image );
+
   }
 
-  public Mat determineRegionOfInterest( Mat binary_image, Mat mask, KeyPoint keypoint ) {
+  public Mat determineRegionOfInterest( Mat binary_image, Mat mask, KeyPoint kpoint ) {
 
     int rectanx1;
     int rectany1;
@@ -64,7 +69,7 @@ public class TaxDiscImage extends ImageManipulation {
     int scalar_value = 255;
 
     for( int i = 0; i < this.listpoint.size(); i++ ) {
-      kpoint = this.listpoint.get(ind);
+      kpoint = this.listpoint.get(i);
       rectanx1 = (int) (kpoint.pt.x - 0.5 * kpoint.size);
       rectany1 = (int) (kpoint.pt.y - 0.5 * kpoint.size);
       rectanx2 = (int) (kpoint.size);
@@ -85,6 +90,31 @@ public class TaxDiscImage extends ImageManipulation {
     }
 
     return mask;
+  }
+
+  public void extractedRegionOfInterest( Mat morbyte, Mat src_image ) {
+    Scalar zeros = new Scalar(0, 0, 0);
+
+    for (int i = 0; i < this.countors.size(); i++) {
+      Rect rect = Imgproc.boundingRect(this.countors.get(i));
+
+      if (rect.area() > 0.5 * this.image_size || rect.area() < 5000 || rect.width / rect.height < 3) {
+        Mat roi = new Mat(morbyte, rect);
+        roi.setTo(zeros);
+      } else {
+        Imgproc.rectangle(src_image, rect.br(), rect.tl(), new Scalar(0, 0, 255));
+
+        if (rect.area() >= this.getAreaSize()) {
+          this.setAreaSize( rect.area() );
+
+          // Add our rectangles to an ArrayList to be processed
+          Rect nRoi = new Rect(rect.br(), rect.tl());
+          Mat box = src_image.submat(nRoi);
+
+          addExtractedMatToListByIndex( box, 0 );
+        }
+      }
+    }
   }
 
   public ArrayList<Mat> getExtractedImages() {

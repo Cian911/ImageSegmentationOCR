@@ -19,12 +19,9 @@ class Main {
   public static void main(String[] args) {
 
     System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-//        args[0] = "C://Users//Cian//IdeaProjects//TrustHub//src//assets//IMG_6099.JPG";
-//        args[1] = "-90";
-//        System.out.println("Arg 1: " + args[0] + ", Arg 2: " + args[1]);
-//        System.out.println(args[0]);
+
     double rotationValue = Double.parseDouble("-90");
-    Mat srcImage = Imgcodecs.imread("C://Users//Cian//IdeaProjects//TrustHub//src//assets//IMG_3763.JPG");
+    Mat srcImage = Imgcodecs.imread("image.jpg");
     System.out.println(srcImage);
 
     ImageManipulation im = new ImageManipulation();
@@ -47,23 +44,21 @@ class Main {
     for (int i = 0; i < matList.size(); i++) {
       im.properSkewAngle(matList.get(i));
       String rand = randomString();
-//            matList.set(i, im.cleanImage(matList.get(i)));
-      Imgcodecs.imwrite("C://Users//Cian//IdeaProjects//TrustHub//src//assets//extract//" + rand + ".png", matList.get(i));
+      Imgcodecs.imwrite(rand + ".png", matList.get(i));
     }
 
     for (int i = 0; i < 1; i++) {
       String rand = randomString();
       matList.set(i, im.customCleanImage(matList.get(i)));
 
-      Imgcodecs.imwrite("C://Users//Cian//IdeaProjects//TrustHub//src//assets//extract//" + rand + ".png", matList.get(i));
-      System.out.println("C://Users//Cian//IdeaProjects//TrustHub//src//assets//extract//" + rand + ".png - Interation: " + i);
+      Imgcodecs.imwrite(rand + ".png", matList.get(i));
       String s = null;
 
       // Execute tesseract
       try {
         Process p = Runtime.
                 getRuntime().
-                exec("tesseract -psm 7 C://Users//Cian//IdeaProjects//TrustHub//src//assets//extract//" + rand + ".png ocr/out-" + rand + " digits");
+                exec("tesseract -psm 7 " + rand + ".png ocr/out-" + rand + " digits");
         p.waitFor();
 
         BufferedReader stdInput = new BufferedReader(new
@@ -88,7 +83,7 @@ class Main {
       }
     }
 
-    Write writeImage = new Write(canny, "C://Users//Cian//IdeaProjects//TrustHub//src//assets//taxdisc4.png");
+    Write writeImage = new Write(canny, "taxdisc4.png");
     writeImage.writeImageToLocation();
   }
 
